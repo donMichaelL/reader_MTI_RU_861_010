@@ -9,9 +9,9 @@ import paho.mqtt.publish as publish
 # 1 Byte --> COMMANDID --> Cancel Operation --> 0x50
 # 8 Bytes --> COMMAND PARAMETERS --> 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 # 2 Bytes --> CHECKSUM
-DEFAULT_HEADER =  ['0x52', '0x49', '0x54', '0x4d']
+RESPONSE_HEADER =  ['0x52', '0x49', '0x54', '0x4d']
 BEGIN_HEADER =  ['0x42', '0x49', '0x54', '0x4d']
-RESPONSE = ['0x49', '0x49', '0x54', '0x4d']
+INVENTORY_RESPONSE = ['0x49', '0x49', '0x54', '0x4d']
 
 def find_last_ip_digit():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -30,21 +30,21 @@ COMMAND_DICT = {
     '0x7': 'send_mac_registers',
     '0x2': 'set_mode',
     '0x40': 'start_inventory',
-    '0x1': 'packet',
+    '0x1': 'packet discovery',
 }
 
 RFID = ['0x30', '0x0', '0x3', '0x0', '0x12', '0x75', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x15', '0xdc', '0xad']
 
 def header_analyser(res):
     header = res[0:4]
-    if cmp(header, DEFAULT_HEADER) == 0:
-        return 'DEFAULT_HEADER'
+    if cmp(header, RESPONSE_HEADER) == 0:
+        return 'RESPONSE_HEADER'
     elif cmp(header, BEGIN_HEADER) == 0:
         return 'BEGIN_HEADER'
-    elif cmp(header, RESPONSE) == 0:
-        return 'RESPONSE'
+    elif cmp(header, INVENTORY_RESPONSE) == 0:
+        return 'INVENTORY_RESPONSE'
     else:
-        return res[0:4]
+        return ''.join(res[0:4])
 
 def command_analyzer(res):
     command = res[5:6][0]
@@ -55,10 +55,9 @@ def command_analyzer(res):
 
 def paramaters_analyzer(res):
     params = res[7:(len(res)-2)]
-    print len(params)
     if len(params)<6:
         return 'params'
-    return params#[19:35]
+    return params
 
 
 def analyzer(response):
@@ -74,7 +73,14 @@ def analyzer(response):
     	# port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
     timestamp = datetime.datetime.now()
     #print 'Tag: ' + '-'.join(result['parameters']) + ' Antenna: ' + ANTENNA + ' ' + str(timestamp)
-    print '-'.join(result['header']) + '-'.join(result['command']) + '-'.join(result['parameters'])
+    print 'header: ' + result['header']
+    print 'command: ' + result['command']
+    if result['command'] == COMMAND_DICT['0x1']:
+        print 'Antenna: ' + '-'.join(res[25:26])
+        print 'Tag: '+ '-'.join(res[26:42])
+    else:
+        print '-'.join(result['parameters'])
+    print ''
     # with open("log.txt", "a") as fo:
     #     fo.write('\nTag: ' + '-'.join(result['parameters']) + ' Antenna: ' + ANTENNA + ' ' + str(timestamp))
     return result
