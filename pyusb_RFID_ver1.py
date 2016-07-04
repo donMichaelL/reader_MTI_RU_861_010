@@ -48,6 +48,7 @@ def initialization():
 
 # configure antenna
 def antenna_configuration():
+
     ep.write(bytearray(commands.set_antenna_port_state))
     response.print_dictionary(response.read_antenna(dev))
 
@@ -57,12 +58,23 @@ def antenna_configuration():
     ep.write(bytearray(commands.set_antena_config))
     response.print_dictionary(response.read_antenna(dev))
 
+def antenna_configuration_2():
+    ep.write(bytearray(commands.set_antenna_port_state_2))
+    response.print_dictionary(response.read_antenna(dev))
+
+    ep.write(bytearray(commands.set_sense_threshold_2))
+    response.print_dictionary(response.read_antenna(dev))
+
+    ep.write(bytearray(commands.set_antena_config_2))
+    response.print_dictionary(response.read_antenna(dev))
+
 # # retrieve inventory 0x03
 # ep.write(bytearray(commands.retrieve_inventory))
 # response.print_dictionary(response.read_antenna(dev))
 
 # set mode 0x02
 def run_inventory():
+    print 'intentory'
     ep.write(bytearray(commands.set_mode))
     print bytearray(commands.set_mode)
     response.print_dictionary(response.read_antenna(dev))
@@ -74,15 +86,25 @@ def run_inventory():
 
 initialization()
 antenna_configuration()
+antenna_configuration_2()
 run_inventory()
 
+
+# while 1:
+#     response.read_antenna(dev)
 while 1:
     if response.read_antenna(dev) != None:
         pass
     else:
-        initialization()
-        antenna_configuration()
-        run_inventory()
+        if usb.core.find(idVendor=0x24e9, idProduct=0x0861):
+            print 'ok'
+            pass
+        else:
+            time.sleep(5)
+            initialization()
+            antenna_configuration()
+            antenna_configuration_2()
+            run_inventory()
 
 
 
