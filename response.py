@@ -1,7 +1,8 @@
 import socket
-import datetime
 import usb.core
 import paho.mqtt.publish as publish
+from datetime import datetime
+import json
 # Response
 # Inverse Logic
 # 4 Bytes --> HEADER --> Response from MTI (RITM) --> 0x52, 0x49, 0x54, 0x4d
@@ -59,25 +60,29 @@ def paramaters_analyzer(res):
         return 'params'
     return params
 
+# f = open('logs', 'w')
+
 
 def analyzer(response):
     result = {}
     res = [hex(i) for i in response]
-    # print res
+    print len(res)
     result['header'] = header_analyser(res)
     result['command'] = command_analyzer(res)
     result['parameters'] = paramaters_analyzer(res)
-    if cmp(result['parameters'], RFID) == 0:
-        i = 10
-        # publish.single("airsoul", "%s This is a new Message" %(i), hostname="localhost",
-    	# port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
-    timestamp = datetime.datetime.now()
+    timestamp = datetime.now().time()
     #print 'Tag: ' + '-'.join(result['parameters']) + ' Antenna: ' + ANTENNA + ' ' + str(timestamp)
     print 'header: ' + result['header']
     print 'command: ' + result['command']
-    if result['command'] == COMMAND_DICT['0x1']:
-        print 'Antenna: ' + '-'.join(res[25:26])
+    if len(res)>50:
+        print '-'.join(res[26:42])
+        print 'Antenna: ' + '-'.join(res[24:25])
         print 'Tag: '+ '-'.join(res[26:42])
+        # msg = json.dumps({'tag': '-'.join(res[26:42]), 'antenna': '-'.join(res[25:26]) , 'timestamp': str(timestamp) }, sort_keys=True,indent=4, separators=(',', ': '))
+        # f.write(msg)
+        # print msg
+        #if len(res[25:26]) ==1:
+            #publish.single("24", "{'tag': '12345', 'timestamp': " + str(timestamp) + " }", hostname="localhost", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
     else:
         print '-'.join(result['parameters'])
     print ''
