@@ -106,6 +106,11 @@ def run_inventory():
     print bytearray(commands.set_mode)
     response.print_dictionary(response.read_antenna(dev))
 
+    print "HEREEEE"
+    ep.write(bytearray(commands.custom_command))
+    response.print_dictionary(response.read_antenna(dev))
+
+
     # start inventory 0x40
     ep.write(bytearray(commands.tag_inventory))
     response.print_dictionary(response.read_antenna(dev))
