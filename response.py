@@ -1,7 +1,8 @@
 import socket
-import datetime
 import usb.core
 import paho.mqtt.publish as publish
+from datetime import datetime
+import json
 # Response
 # Inverse Logic
 # 4 Bytes --> HEADER --> Response from MTI (RITM) --> 0x52, 0x49, 0x54, 0x4d
@@ -59,30 +60,40 @@ def paramaters_analyzer(res):
         return 'params'
     return params
 
+antenna_code = 0
+def get_antenna_code():
+    global antenna_code
+    if antenna_code == 0:
+        file = open("antenna_code.txt")
+        antenna_code = file.read().rstrip()
+    return antenna_code
+# f = open('logs', 'w')
+
 
 def analyzer(response):
     result = {}
     res = [hex(i) for i in response]
-    # print res
+    print len(res)
     result['header'] = header_analyser(res)
     result['command'] = command_analyzer(res)
     result['parameters'] = paramaters_analyzer(res)
-    if cmp(result['parameters'], RFID) == 0:
-        i = 10
-        # publish.single("airsoul", "%s This is a new Message" %(i), hostname="localhost",
-    	# port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
-    timestamp = datetime.datetime.now()
-    #print 'Tag: ' + '-'.join(result['parameters']) + ' Antenna: ' + ANTENNA + ' ' + str(timestamp)
-    print 'header: ' + result['header']
+    timestamp = datetime.now().time()
+    print 'header: ' + str(antenna_code)
     print 'command: ' + result['command']
-    if result['command'] == COMMAND_DICT['0x1']:
-        print 'Antenna: ' + '-'.join(res[25:26])
+    if len(res)>50:
+        print '-'.join(res[26:42])
+        print 'Antenna: ' + str(antenna_code) #'-'.join(res[24:25])
         print 'Tag: '+ '-'.join(res[26:42])
+        msg = json.dumps({'tag': '-'.join(res[26:42]), 'antenna': str(antenna_code) , 'timestamp': str(timestamp) }, sort_keys=True,indent=4, separators=(',', ': '))
+        try:
+            # publish.single("input/" + get_antenna_code(), msg , hostname="192.168.33.11", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
+            print "LED ON"
+        except:
+            print "LED OFF"
+            pass
     else:
         print '-'.join(result['parameters'])
     print ''
-    # with open("log.txt", "a") as fo:
-    #     fo.write('\nTag: ' + '-'.join(result['parameters']) + ' Antenna: ' + ANTENNA + ' ' + str(timestamp))
     return result
 
 
