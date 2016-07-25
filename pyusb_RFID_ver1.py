@@ -4,11 +4,18 @@ import usb.core
 import usb.util
 import time
 import commands
+from datetime import datetime
 from subprocess import Popen, PIPE
 
 import response
 
 VENDOR_ID = '24e9'
+
+f = open('log.txt', 'w')
+
+def printToFile(log_message):
+    timestamp = '[' + str(datetime.now()) + ']'
+    f.write(timestamp + ': ' + log_message + '\n')
 
 def findVendorProductId():
     p = Popen('lsusb', shell=True, stdout=PIPE)
@@ -16,15 +23,17 @@ def findVendorProductId():
     start_of_vendor_id = output.find(str(VENDOR_ID))
     if start_of_vendor_id != -1:
         idProductStr = output[start_of_vendor_id+5:start_of_vendor_id+9]
+        printToFile('Reader Found with Product Id ' + idProductStr)
         idProduct = int('0x'+idProductStr, 16)
         idVentor = int('0x'+VENDOR_ID, 16)
         return (idVentor, idProduct)
+    printToFile('Reader Not Found')
 
 # Connect With Reader
 def discover_reader():
     found_reader = False
     while not found_reader:
-        global dev
+        global dev, idVendor, idProduct
         try:
             idVendor, idProduct = findVendorProductId()
             dev = usb.core.find(idVendor=idVendor, idProduct=idProduct)
@@ -41,10 +50,9 @@ def discover_reader():
                 lambda e: \
                     usb.util.endpoint_direction(e.bEndpointAddress) == \
                     usb.util.ENDPOINT_OUT)
-
             assert ep is not None
         except  Exception, err:
-            print err
+            printToFile('Exception in discover_reader ' + str(err))
             time.sleep(5)
             pass
 
@@ -71,6 +79,8 @@ def initialization():
     # get update_number 0x07
     ep.write(bytearray(commands.mac_registers))
     response.print_dictionary(response.read_antenna(dev))
+    printToFile('Initialization success')
+
 
 
 # configure antenna
@@ -84,6 +94,8 @@ def antenna_configuration():
 
     ep.write(bytearray(commands.set_antena_config))
     response.print_dictionary(response.read_antenna(dev))
+    printToFile('Antenna 1 configuration success')
+
 
 def antenna_configuration_2():
     ep.write(bytearray(commands.set_antenna_port_state_2))
@@ -94,6 +106,8 @@ def antenna_configuration_2():
 
     ep.write(bytearray(commands.set_antena_config_2))
     response.print_dictionary(response.read_antenna(dev))
+    printToFile('Antenna 2 configuration success')
+
 
 # # retrieve inventory 0x03
 # ep.write(bytearray(commands.retrieve_inventory))
@@ -110,6 +124,8 @@ def run_inventory():
     ep.write(bytearray(commands.tag_inventory))
     response.print_dictionary(response.read_antenna(dev))
     response.print_dictionary(response.read_antenna(dev))
+    printToFile('Run Inventory success')
+
 
 discover_reader()
 initialization()
@@ -123,9 +139,10 @@ while 1:
     if response.read_antenna(dev) != None:
         pass
     else:
-        if usb.core.find(idVendor=0x24e9, idProduct=0x0861):
+        if usb.core.find(idVendor=idVendor, idProduct=idProduct):
             print 'ok'
         else:
+            printToFile('Error Lost Reader')
             time.sleep(5)
             print "LED OFF"
             discover_reader()
