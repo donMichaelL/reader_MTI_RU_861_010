@@ -118,6 +118,7 @@ antenna_configuration_2()
 run_inventory()
 
 
+
 while 1:
     if response.read_antenna(dev) != None:
         pass

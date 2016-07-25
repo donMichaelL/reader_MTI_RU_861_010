@@ -67,7 +67,6 @@ def get_antenna_code():
         file = open("antenna_code.txt")
         antenna_code = file.read().rstrip()
     return antenna_code
-# f = open('logs', 'w')
 
 
 def analyzer(response):
