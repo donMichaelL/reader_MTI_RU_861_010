@@ -85,7 +85,7 @@ def analyzer(response):
         print 'Tag: '+ '-'.join(res[26:42])
         msg = json.dumps({'tag': '-'.join(res[26:42]), 'antenna': str(antenna_code) , 'timestamp': str(timestamp) }, sort_keys=True,indent=4, separators=(',', ': '))
         try:
-            # publish.single("input/" + get_antenna_code(), msg , hostname="192.168.33.11", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
+            publish.single("input/" + get_antenna_code(), msg , hostname="localhost", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
             print "LED ON"
         except:
             print "LED OFF"
