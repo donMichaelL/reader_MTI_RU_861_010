@@ -20,7 +20,7 @@ time.sleep(5)
 GPIO.output(7, False)
 
 
-f = open('log.txt', 'w')
+f = open('log.txt', 'a')
 
 def printToFile(log_message):
     timestamp = '[' + str(datetime.now()) + ']'
