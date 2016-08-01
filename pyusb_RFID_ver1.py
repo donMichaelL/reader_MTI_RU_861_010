@@ -20,11 +20,12 @@ time.sleep(5)
 GPIO.output(7, False)
 
 
-f = open('log.txt', 'a')
 
 def printToFile(log_message):
+    f = open('log.txt', 'a')
     timestamp = '[' + str(datetime.now()) + ']'
     f.write(timestamp + ': ' + log_message + '\n')
+    f.close()
 
 def findVendorProductId():
     p = Popen('lsusb', shell=True, stdout=PIPE)
