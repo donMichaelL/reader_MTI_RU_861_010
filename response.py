@@ -14,13 +14,6 @@ RESPONSE_HEADER =  ['0x52', '0x49', '0x54', '0x4d']
 BEGIN_HEADER =  ['0x42', '0x49', '0x54', '0x4d']
 INVENTORY_RESPONSE = ['0x49', '0x49', '0x54', '0x4d']
 
-def find_last_ip_digit():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(('8.8.8.8', 0))
-    ip = s.getsockname()[0]
-    return ip.split('.')[-1]
-
-ANTENNA = find_last_ip_digit()
 
 COMMAND_DICT = {
     '0x67': 'send_mac',
