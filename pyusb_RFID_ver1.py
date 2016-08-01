@@ -8,8 +8,17 @@ from datetime import datetime
 from subprocess import Popen, PIPE
 
 import response
+import RPi.GPIO as GPIO ## Import GPIO library
+
 
 VENDOR_ID = '24e9'
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7, GPIO.OUT)
+GPIO.output(7, True)
+time.sleep(5)
+GPIO.output(7, False)
+
 
 f = open('log.txt', 'w')
 
@@ -144,7 +153,7 @@ while 1:
         else:
             printToFile('Error Lost Reader')
             time.sleep(5)
-            print "LED OFF"
+            GPIO.output(7, False)
             discover_reader()
             initialization()
             antenna_configuration()
@@ -155,6 +164,7 @@ while 1:
 
 
 
+GPIO.cleanup()
 
 
 
