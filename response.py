@@ -1,6 +1,6 @@
 import socket
 import usb.core
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 import paho.mqtt.publish as publish
 from datetime import datetime
 import json
@@ -79,10 +79,10 @@ def analyzer(response):
         print 'Tag: '+ '-'.join(res[26:42])
         msg = json.dumps({'tag': '-'.join(res[26:42]), 'antenna': str(antenna_code) , 'timestamp': str(timestamp) }, sort_keys=True,indent=4, separators=(',', ': '))
         try:
-            publish.single("input/" + get_antenna_code(), msg , hostname="192.168.33.11", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
-            GPIO.output(7, True)
+            publish.single("input/" + get_antenna_code(), msg , hostname="localhost", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
+            # GPIO.output(7, True)
         except:
-            GPIO.output(7, False)
+            # GPIO.output(7, False)
             pass
     else:
         print '-'.join(result['parameters'])
@@ -96,7 +96,9 @@ def read_antenna(dev):
         data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
         return analyzer(data)
     except usb.core.USBError as e:
-        data = None
+        print e
+    except Exception as e:
+        print e
 
 
 def _print_dictionary(dictionary):

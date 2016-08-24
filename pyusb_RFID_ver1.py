@@ -8,17 +8,16 @@ from datetime import datetime
 from subprocess import Popen, PIPE
 
 import response
-import RPi.GPIO as GPIO ## Import GPIO library
+# import RPi.GPIO as GPIO ## Import GPIO library
 
 
 VENDOR_ID = '24e9'
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
-GPIO.output(7, True)
-time.sleep(5)
-GPIO.output(7, False)
-
+# GPIO.setmode(GPIO.BOARD)
+# GPIO.setup(7, GPIO.OUT)
+# GPIO.output(7, True)
+# time.sleep(5)
+# GPIO.output(7, False)
 
 
 def printToFile(log_message):
@@ -95,7 +94,6 @@ def initialization():
 
 # configure antenna
 def antenna_configuration():
-
     ep.write(bytearray(commands.set_antenna_port_state))
     response.print_dictionary(response.read_antenna(dev))
 
@@ -154,7 +152,7 @@ while 1:
         else:
             printToFile('Error Lost Reader')
             time.sleep(5)
-            GPIO.output(7, False)
+            # GPIO.output(7, False)
             discover_reader()
             initialization()
             antenna_configuration()
@@ -165,7 +163,7 @@ while 1:
 
 
 
-GPIO.cleanup()
+# GPIO.cleanup()
 
 
 
