@@ -66,13 +66,14 @@ def get_antenna_code():
 def analyzer(response):
     result = {}
     res = [hex(i) for i in response]
-    print len(res)
+    print res
+    # print len(res)
     result['header'] = header_analyser(res)
     result['command'] = command_analyzer(res)
     result['parameters'] = paramaters_analyzer(res)
     timestamp = datetime.now().time()
-    print 'header: ' + str(antenna_code)
-    print 'command: ' + result['command']
+    # print 'header: ' + str(antenna_code)
+    # print 'command: ' + result['command']
     if len(res)>50:
         print '-'.join(res[26:42])
         print 'Antenna: ' + str(antenna_code) #'-'.join(res[24:25])
