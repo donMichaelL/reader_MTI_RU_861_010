@@ -66,23 +66,18 @@ def initialization():
         response.print_dictionary(response.read_antenna(dev))
     # get firmware 0x60
     ep.write(bytearray(commands.get_firmware))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
     # get version 0x6c
     ep.write(bytearray(commands.get_version))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
     # get update_number 0x6d
     ep.write(bytearray(commands.get_upd_num))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
     # get bootloader 0x64
     ep.write(bytearray(commands.get_bootloader))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
     # get update_number 0x07
     ep.write(bytearray(commands.mac_registers))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
     printToFile('Initialization success')
 
@@ -91,31 +86,25 @@ def initialization():
 # configure antenna
 def antenna_configuration():
     ep.write(bytearray(commands.set_antenna_port_state))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
 
     ep.write(bytearray(commands.set_sense_threshold))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
 
     ep.write(bytearray(commands.set_antena_config))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
 
     printToFile('Antenna 1 configuration success')
 
 
 def antenna_configuration_2():
-    print 'send command'
     ep.write(bytearray(commands.set_antenna_port_state_2))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
-    print '---------------------------'
+
     ep.write(bytearray(commands.set_sense_threshold_2))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
+
     ep.write(bytearray(commands.set_antena_config_2))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
     printToFile('Antenna 2 configuration success')
 
@@ -127,7 +116,6 @@ def antenna_configuration_2():
 # set mode 0x02
 def run_inventory():
     ep.write(bytearray(commands.set_mode))
-    time.sleep(1)
     response.print_dictionary(response.read_antenna(dev))
 
     # start inventory 0x40
