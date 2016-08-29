@@ -57,28 +57,44 @@ def discover_reader():
             pass
 
 
+
+def receive_data():
+    response.print_dictionary(response.read_antenna(dev))
+    response.print_dictionary(response.read_antenna(dev))
+    time.sleep(1)
+    response.print_dictionary(response.read_antenna(dev))
+    response.print_dictionary(response.read_antenna(dev))
+    response.print_dictionary(response.read_antenna(dev))
+    print '-----------------------------------'
+
+
+
+
+
 def initialization():
+    print 'startin initialization'
     # cancel 0x50
     ep.write(bytearray(commands.cancel_operation))
     # get mac 0x67(x5)
     for item in commands.read_mac:
         ep.write(bytearray(item))
-        response.print_dictionary(response.read_antenna(dev))
+        receive_data()
     # get firmware 0x60
     ep.write(bytearray(commands.get_firmware))
-    response.print_dictionary(response.read_antenna(dev))
+    #response.print_dictionary(response.read_antenna(dev))
+    receive_data()
     # get version 0x6c
     ep.write(bytearray(commands.get_version))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
     # get update_number 0x6d
     ep.write(bytearray(commands.get_upd_num))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
     # get bootloader 0x64
     ep.write(bytearray(commands.get_bootloader))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
     # get update_number 0x07
     ep.write(bytearray(commands.mac_registers))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
     printToFile('Initialization success')
 
 
@@ -86,26 +102,26 @@ def initialization():
 # configure antenna
 def antenna_configuration():
     ep.write(bytearray(commands.set_antenna_port_state))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
 
     ep.write(bytearray(commands.set_sense_threshold))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
 
     ep.write(bytearray(commands.set_antena_config))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
 
     printToFile('Antenna 1 configuration success')
 
 
 def antenna_configuration_2():
     ep.write(bytearray(commands.set_antenna_port_state_2))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
 
     ep.write(bytearray(commands.set_sense_threshold_2))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
 
     ep.write(bytearray(commands.set_antena_config_2))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
     printToFile('Antenna 2 configuration success')
 
 
@@ -116,12 +132,12 @@ def antenna_configuration_2():
 # set mode 0x02
 def run_inventory():
     ep.write(bytearray(commands.set_mode))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
 
     # start inventory 0x40
     ep.write(bytearray(commands.tag_inventory))
-    response.print_dictionary(response.read_antenna(dev))
-    response.print_dictionary(response.read_antenna(dev))
+    receive_data()
+    receive_data()
     printToFile('Run Inventory success')
 
 
@@ -133,7 +149,17 @@ def starting_process():
     run_inventory()
 
 
+
+
 starting_process()
+
+
+# time.sleep(4)
+# print '-------------------'
+# print bytearray(commands.get_status)
+# ep.write(bytearray(commands.get_status))
+# response.print_dictionary(response.read_antenna(dev))
+# print '_---------------------'
 
 while 1:
     if response.read_antenna(dev) != None:
