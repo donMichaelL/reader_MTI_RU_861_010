@@ -57,42 +57,26 @@ def discover_reader():
             pass
 
 
-
 def receive_data():
-    response.print_dictionary(response.read_antenna(dev))
-    response.print_dictionary(response.read_antenna(dev))
-    time.sleep(1)
-    response.print_dictionary(response.read_antenna(dev))
-    response.print_dictionary(response.read_antenna(dev))
-    response.print_dictionary(response.read_antenna(dev))
+    response.read_antenna(dev)
+    response.read_antenna(dev)
     print '-----------------------------------'
-
-
-
 
 
 def initialization():
     print 'startin initialization'
-    # cancel 0x50
     ep.write(bytearray(commands.cancel_operation))
-    # get mac 0x67(x5)
     for item in commands.read_mac:
         ep.write(bytearray(item))
         receive_data()
-    # get firmware 0x60
     ep.write(bytearray(commands.get_firmware))
-    #response.print_dictionary(response.read_antenna(dev))
     receive_data()
-    # get version 0x6c
     ep.write(bytearray(commands.get_version))
     receive_data()
-    # get update_number 0x6d
     ep.write(bytearray(commands.get_upd_num))
     receive_data()
-    # get bootloader 0x64
     ep.write(bytearray(commands.get_bootloader))
     receive_data()
-    # get update_number 0x07
     ep.write(bytearray(commands.mac_registers))
     receive_data()
     printToFile('Initialization success')
@@ -103,13 +87,10 @@ def initialization():
 def antenna_configuration():
     ep.write(bytearray(commands.set_antenna_port_state))
     receive_data()
-
     ep.write(bytearray(commands.set_sense_threshold))
     receive_data()
-
     ep.write(bytearray(commands.set_antena_config))
     receive_data()
-
     printToFile('Antenna 1 configuration success')
 
 
@@ -125,16 +106,11 @@ def antenna_configuration_2():
     printToFile('Antenna 2 configuration success')
 
 
-# # retrieve inventory 0x03
-# ep.write(bytearray(commands.retrieve_inventory))
-# response.print_dictionary(response.read_antenna(dev))
-
-# set mode 0x02
 def run_inventory():
+    ep.write(bytearray(commands.retrieve_inventory))
+    receive_data()
     ep.write(bytearray(commands.set_mode))
     receive_data()
-
-    # start inventory 0x40
     ep.write(bytearray(commands.tag_inventory))
     receive_data()
     receive_data()
@@ -143,23 +119,16 @@ def run_inventory():
 
 def starting_process():
     discover_reader()
-    initialization()
+    # initialization()
+    print 'antenna1'
     antenna_configuration()
+    print 'antenna2'
     antenna_configuration_2()
+    print 'intentory'
     run_inventory()
-
-
-
+    print 'done'
 
 starting_process()
-
-
-# time.sleep(4)
-# print '-------------------'
-# print bytearray(commands.get_status)
-# ep.write(bytearray(commands.get_status))
-# response.print_dictionary(response.read_antenna(dev))
-# print '_---------------------'
 
 while 1:
     if response.read_antenna(dev) != None:
@@ -171,17 +140,3 @@ while 1:
             printToFile('Error Lost Reader')
             time.sleep(5)
             starting_process()
-
-
-
-
-
-# GPIO.cleanup()
-
-
-
-
-# # release the device
-# usb.util.release_interface(dev, interface)
-# # reattach the device to the OS kernel
-# dev.attach_kernel_driver(interface)

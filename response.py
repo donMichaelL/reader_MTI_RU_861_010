@@ -1,6 +1,5 @@
 import socket
 import usb.core
-# import RPi.GPIO as GPIO
 import paho.mqtt.publish as publish
 from datetime import datetime
 import json
@@ -27,8 +26,6 @@ COMMAND_DICT = {
     '0x40': 'start_inventory',
     '0x1': 'packet discovery',
 }
-
-RFID = ['0x30', '0x0', '0x3', '0x0', '0x12', '0x75', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x15', '0xdc', '0xad']
 
 def header_analyser(res):
     header = res[0:4]
@@ -62,11 +59,11 @@ def get_antenna_code():
         antenna_code = file.read().rstrip()
     return antenna_code
 
-
 def analyzer(response):
+    print 'ok'
     result = {}
     res = [hex(i) for i in response]
-    print res
+    printToFile('-'.join(res))
     # print len(res)
     result['header'] = header_analyser(res)
     result['command'] = command_analyzer(res)
@@ -81,12 +78,10 @@ def analyzer(response):
         msg = json.dumps({'tag': '-'.join(res[26:42]), 'antenna': str(antenna_code) , 'timestamp': str(timestamp) }, sort_keys=True,indent=4, separators=(',', ': '))
         try:
             publish.single("input/" + get_antenna_code(), msg , hostname="localhost", port=1883, client_id="", keepalive=60, will=None, auth=None, tls=None)
-            # GPIO.output(7, True)
         except:
-            # GPIO.output(7, False)
             pass
     else:
-        print '-'.join(result['parameters'])
+        pass
     print ''
     return result
 
@@ -100,19 +95,3 @@ def read_antenna(dev):
         print e
     except Exception as e:
         print e
-
-
-def _print_dictionary(dictionary):
-    # try :
-    #     for key, value in dictionary.items():
-    #         print key + ': '+ value,
-    #     print '-------------'
-    # except:
-    #     pass
-    pass
-
-def print_dictionary(data):
-    pass
-    # print "________________________________________________________________________"
-    # # print data
-    # print "________________________________________________________________________"
