@@ -63,7 +63,6 @@ def analyzer(response):
     print 'ok'
     result = {}
     res = [hex(i) for i in response]
-    printToFile('-'.join(res))
     # print len(res)
     result['header'] = header_analyser(res)
     result['command'] = command_analyzer(res)
