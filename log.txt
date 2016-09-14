@@ -1,0 +1,251 @@
+[2016-09-07 12:31:55.055963]: Reader Found with Product Id 0861
+[2016-09-07 12:31:59.088497]: Antenna 1 configuration success
+[2016-09-07 12:32:05.105489]: Antenna 2 configuration success
+[2016-09-07 12:32:13.127470]: Run Inventory success
+[2016-09-07 12:35:14.051058]: Reader Found with Product Id 0861
+[2016-09-07 12:35:18.086010]: Antenna 1 configuration success
+[2016-09-07 12:35:20.296300]: Antenna 2 configuration success
+[2016-09-07 12:35:20.359180]: Run Inventory success
+[2016-09-08 11:06:56.719587]: Reader Not Found
+[2016-09-08 11:06:56.734632]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-08 11:07:01.853729]: Reader Not Found
+[2016-09-08 11:07:01.853869]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-08 11:07:14.362517]: Reader Not Found
+[2016-09-08 11:07:14.362982]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-12 17:19:47.122095]: Reader Found with Product Id 0861
+[2016-09-12 17:19:50.184482]: Antenna 1 configuration success
+[2016-09-12 17:19:53.196495]: Antenna 2 configuration success
+[2016-09-12 17:19:57.215010]: Run Inventory success
+[2016-09-12 17:23:52.470729]: Reader Found with Product Id 0861
+[2016-09-12 17:23:55.505817]: Antenna 1 configuration success
+[2016-09-12 17:23:58.520791]: Antenna 2 configuration success
+[2016-09-12 17:24:02.539480]: Run Inventory success
+[2016-09-12 17:24:52.485032]: Reader Found with Product Id 0861
+[2016-09-12 17:24:55.514827]: Antenna 1 configuration success
+[2016-09-12 17:24:58.529858]: Antenna 2 configuration success
+[2016-09-12 17:25:02.548520]: Run Inventory success
+[2016-09-12 17:27:26.692657]: Reader Not Found
+[2016-09-12 17:27:26.692818]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-12 17:27:31.807004]: Reader Not Found
+[2016-09-12 17:27:31.807155]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-12 17:28:40.145072]: Reader Found with Product Id 0861
+[2016-09-12 17:28:43.172948]: Antenna 1 configuration success
+[2016-09-12 17:28:46.187703]: Antenna 2 configuration success
+[2016-09-12 17:28:50.204506]: Run Inventory success
+[2016-09-12 17:30:18.501150]: Reader Found with Product Id 0861
+[2016-09-12 17:30:24.539488]: Antenna 1 configuration success
+[2016-09-12 17:30:30.557702]: Antenna 2 configuration success
+[2016-09-12 17:30:38.581988]: Run Inventory success
+[2016-09-13 13:49:50.814033]: Reader Not Found
+[2016-09-13 13:49:50.814196]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:49:55.929117]: Reader Not Found
+[2016-09-13 13:49:55.929259]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:01.050367]: Reader Not Found
+[2016-09-13 13:50:01.050459]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:06.171370]: Reader Not Found
+[2016-09-13 13:50:06.171509]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:11.290227]: Reader Not Found
+[2016-09-13 13:50:11.290367]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:16.411235]: Reader Not Found
+[2016-09-13 13:50:16.411377]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:21.531746]: Reader Not Found
+[2016-09-13 13:50:21.531886]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:26.650248]: Reader Not Found
+[2016-09-13 13:50:26.650390]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:31.768982]: Reader Not Found
+[2016-09-13 13:50:31.769118]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:36.888149]: Reader Not Found
+[2016-09-13 13:50:36.888291]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:42.000752]: Reader Not Found
+[2016-09-13 13:50:42.000886]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:47.119287]: Reader Not Found
+[2016-09-13 13:50:47.119428]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-13 13:50:52.230357]: Reader Found with Product Id 0861
+[2016-09-13 13:50:55.264209]: Antenna 1 configuration success
+[2016-09-13 13:50:58.279178]: Antenna 2 configuration success
+[2016-09-13 13:51:02.297804]: Run Inventory success
+[2016-09-13 13:52:20.747978]: Reader Found with Product Id 0861
+[2016-09-13 13:52:24.817824]: Antenna 1 configuration success
+[2016-09-13 13:52:27.665514]: Antenna 2 configuration success
+[2016-09-13 13:52:29.767731]: Run Inventory success
+[2016-09-13 13:57:30.569362]: Reader Found with Product Id 0861
+[2016-09-13 13:57:31.280925]: Antenna 1 configuration success
+[2016-09-13 13:57:31.323618]: Antenna 2 configuration success
+[2016-09-13 13:57:31.378523]: Run Inventory success
+[2016-09-13 14:00:10.161982]: Reader Found with Product Id 0861
+[2016-09-13 14:03:04.450590]: Reader Found with Product Id 0861
+[2016-09-13 14:13:02.533379]: Reader Found with Product Id 0861
+[2016-09-13 14:13:06.602791]: Antenna 1 configuration success
+[2016-09-13 14:13:12.621719]: Antenna 2 configuration success
+[2016-09-13 14:13:20.646007]: Run Inventory success
+[2016-09-13 14:14:05.807201]: Reader Found with Product Id 0861
+[2016-09-13 14:14:06.535019]: Antenna 1 configuration success
+[2016-09-13 14:14:06.602303]: Antenna 2 configuration success
+[2016-09-13 14:14:06.680076]: Run Inventory success
+[2016-09-13 14:15:40.704076]: Reader Found with Product Id 0861
+[2016-09-13 14:15:41.428399]: Antenna 1 configuration success
+[2016-09-13 14:15:41.486223]: Antenna 2 configuration success
+[2016-09-13 14:15:41.582139]: Run Inventory success
+[2016-09-13 14:16:55.730074]: Reader Found with Product Id 0861
+[2016-09-13 14:16:56.444209]: Antenna 1 configuration success
+[2016-09-13 14:16:56.515745]: Antenna 2 configuration success
+[2016-09-13 14:16:56.598187]: Run Inventory success
+[2016-09-13 14:17:28.962679]: Reader Found with Product Id 0861
+[2016-09-13 14:17:29.690380]: Antenna 1 configuration success
+[2016-09-13 14:17:29.745822]: Antenna 2 configuration success
+[2016-09-13 14:17:29.833935]: Run Inventory success
+[2016-09-13 14:18:56.450871]: Reader Found with Product Id 0861
+[2016-09-13 14:18:57.178310]: Antenna 1 configuration success
+[2016-09-13 14:18:57.237073]: Antenna 2 configuration success
+[2016-09-13 14:18:57.322396]: Run Inventory success
+[2016-09-13 14:19:09.994907]: Reader Found with Product Id 0861
+[2016-09-13 14:19:10.729729]: Antenna 1 configuration success
+[2016-09-13 14:19:10.805236]: Antenna 2 configuration success
+[2016-09-13 14:19:10.892186]: Run Inventory success
+[2016-09-13 14:19:50.855241]: Reader Found with Product Id 0861
+[2016-09-13 14:19:51.579609]: Antenna 1 configuration success
+[2016-09-13 14:19:51.636350]: Antenna 2 configuration success
+[2016-09-13 14:19:51.738056]: Run Inventory success
+[2016-09-13 14:20:35.393333]: Reader Found with Product Id 0861
+[2016-09-13 14:20:36.118587]: Antenna 1 configuration success
+[2016-09-13 14:20:36.184689]: Antenna 2 configuration success
+[2016-09-13 14:20:36.275460]: Run Inventory success
+[2016-09-13 14:20:54.130251]: Reader Found with Product Id 0861
+[2016-09-13 14:20:54.858688]: Antenna 1 configuration success
+[2016-09-13 14:20:54.920388]: Antenna 2 configuration success
+[2016-09-13 14:20:55.004111]: Run Inventory success
+[2016-09-13 14:24:07.921319]: Reader Found with Product Id 0861
+[2016-09-13 14:24:11.952744]: Antenna 1 configuration success
+[2016-09-13 14:24:17.971343]: Antenna 2 configuration success
+[2016-09-13 14:24:25.995310]: Run Inventory success
+[2016-09-13 14:34:24.143124]: Reader Found with Product Id 0861
+[2016-09-13 14:34:24.381939]: Antenna 1 configuration success
+[2016-09-13 14:34:24.482549]: Antenna 2 configuration success
+[2016-09-13 14:34:24.618651]: Run Inventory success
+[2016-09-13 15:37:24.630105]: Reader Found with Product Id 0861
+[2016-09-13 15:37:27.772977]: Antenna 1 configuration success
+[2016-09-13 15:37:30.787905]: Antenna 2 configuration success
+[2016-09-13 15:37:34.804424]: Run Inventory success
+[2016-09-14 10:57:57.317793]: Reader Found with Product Id 0861
+[2016-09-14 10:58:00.454575]: Antenna 1 configuration success
+[2016-09-14 10:58:03.469527]: Antenna 2 configuration success
+[2016-09-14 10:58:07.488120]: Run Inventory success
+[2016-09-14 11:06:02.418479]: Reader Found with Product Id 0861
+[2016-09-14 11:06:04.132819]: Antenna 1 configuration success
+[2016-09-14 11:06:08.126129]: Antenna 2 configuration success
+[2016-09-14 11:06:22.169372]: Run Inventory success
+[2016-09-14 11:06:48.305811]: Reader Not Found
+[2016-09-14 11:06:48.305965]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-14 11:06:53.427405]: Reader Found with Product Id 0861
+[2016-09-14 11:06:59.466020]: Antenna 1 configuration success
+[2016-09-14 11:07:05.484647]: Antenna 2 configuration success
+[2016-09-14 11:07:19.526353]: Run Inventory success
+[2016-09-14 11:09:36.019240]: Reader Found with Product Id 0861
+[2016-09-14 11:09:39.050344]: Antenna 1 configuration success
+[2016-09-14 11:09:42.064306]: Antenna 2 configuration success
+[2016-09-14 11:09:48.125647]: Run Inventory success
+[2016-09-14 11:10:44.993295]: Reader Found with Product Id 0861
+[2016-09-14 11:10:54.811817]: Reader Found with Product Id 0861
+[2016-09-14 11:11:03.875604]: Initialization success
+[2016-09-14 11:11:06.890546]: Antenna 1 configuration success
+[2016-09-14 11:11:09.905622]: Antenna 2 configuration success
+[2016-09-14 11:11:16.939249]: Run Inventory success
+[2016-09-14 11:13:10.621346]: Reader Found with Product Id 0861
+[2016-09-14 11:13:19.684017]: Initialization success
+[2016-09-14 11:13:22.699001]: Antenna 1 configuration success
+[2016-09-14 11:13:25.714009]: Antenna 2 configuration success
+[2016-09-14 11:13:29.732605]: Run Inventory success
+[2016-09-14 11:14:02.143719]: Reader Found with Product Id 0861
+[2016-09-14 11:14:11.207138]: Initialization success
+[2016-09-14 11:14:14.222118]: Antenna 1 configuration success
+[2016-09-14 11:14:17.237069]: Antenna 2 configuration success
+[2016-09-14 11:14:21.255743]: Run Inventory success
+[2016-09-14 11:16:12.370295]: Reader Found with Product Id 0861
+[2016-09-14 11:16:22.474285]: Initialization success
+[2016-09-14 11:16:25.489246]: Antenna 1 configuration success
+[2016-09-14 11:16:28.504272]: Antenna 2 configuration success
+[2016-09-14 11:16:32.522839]: Run Inventory success
+[2016-09-14 11:30:03.077296]: Reader Found with Product Id 0861
+[2016-09-14 11:30:13.251942]: Initialization success
+[2016-09-14 11:30:16.266969]: Antenna 1 configuration success
+[2016-09-14 11:30:19.281898]: Antenna 2 configuration success
+[2016-09-14 11:30:23.300434]: Run Inventory success
+[2016-09-14 11:30:39.299242]: Reader Found with Product Id 0861
+[2016-09-14 11:30:48.369811]: Initialization success
+[2016-09-14 11:30:51.384795]: Antenna 1 configuration success
+[2016-09-14 11:30:54.399792]: Antenna 2 configuration success
+[2016-09-14 11:30:58.418343]: Run Inventory success
+[2016-09-14 11:32:30.788139]: Reader Found with Product Id 0861
+[2016-09-14 11:32:39.855680]: Initialization success
+[2016-09-14 11:32:42.870722]: Antenna 1 configuration success
+[2016-09-14 11:32:45.885704]: Antenna 2 configuration success
+[2016-09-14 11:32:48.936380]: Run Inventory success
+[2016-09-14 11:33:40.956256]: Reader Found with Product Id 0861
+[2016-09-14 11:33:49.022922]: Initialization success
+[2016-09-14 11:33:52.037996]: Antenna 1 configuration success
+[2016-09-14 11:33:55.052954]: Antenna 2 configuration success
+[2016-09-14 11:33:58.604839]: Run Inventory success
+[2016-09-14 11:34:24.082428]: Reader Found with Product Id 0861
+[2016-09-14 11:34:33.148033]: Initialization success
+[2016-09-14 11:34:36.163003]: Antenna 1 configuration success
+[2016-09-14 11:34:39.177047]: Antenna 2 configuration success
+[2016-09-14 11:34:42.736176]: Run Inventory success
+[2016-09-14 11:35:29.670717]: Reader Found with Product Id 0861
+[2016-09-14 11:35:39.749038]: Initialization success
+[2016-09-14 11:35:42.763113]: Antenna 1 configuration success
+[2016-09-14 11:35:45.778053]: Antenna 2 configuration success
+[2016-09-14 11:35:49.796614]: Run Inventory success
+[2016-09-14 11:36:06.471919]: Reader Found with Product Id 0861
+[2016-09-14 11:36:15.539058]: Initialization success
+[2016-09-14 11:36:18.554069]: Antenna 1 configuration success
+[2016-09-14 11:36:21.569054]: Antenna 2 configuration success
+[2016-09-14 11:36:26.637129]: Run Inventory success
+[2016-09-14 11:37:36.292961]: Reader Found with Product Id 0861
+[2016-09-14 11:37:44.358917]: Initialization success
+[2016-09-14 11:37:47.373926]: Antenna 1 configuration success
+[2016-09-14 11:37:50.388971]: Antenna 2 configuration success
+[2016-09-14 11:37:55.449021]: Run Inventory success
+[2016-09-14 11:39:55.002866]: Reader Found with Product Id 0861
+[2016-09-14 11:40:03.066779]: Initialization success
+[2016-09-14 11:40:06.081754]: Antenna 1 configuration success
+[2016-09-14 11:40:09.096708]: Antenna 2 configuration success
+[2016-09-14 11:40:15.161781]: Run Inventory success
+[2016-09-14 11:43:16.594068]: Reader Not Found
+[2016-09-14 11:43:16.594212]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-14 11:43:21.712954]: Reader Not Found
+[2016-09-14 11:43:21.713103]: Exception in discover_reader 'NoneType' object is not iterable
+[2016-09-14 11:43:26.829744]: Reader Found with Product Id 0861
+[2016-09-14 11:43:36.900434]: Initialization success
+[2016-09-14 11:43:39.915428]: Antenna 1 configuration success
+[2016-09-14 11:43:42.930447]: Antenna 2 configuration success
+[2016-09-14 11:43:48.994617]: Run Inventory success
+[2016-09-14 11:44:18.543017]: Reader Found with Product Id 0861
+[2016-09-14 11:44:27.604583]: Initialization success
+[2016-09-14 11:44:30.619590]: Antenna 1 configuration success
+[2016-09-14 11:44:33.634615]: Antenna 2 configuration success
+[2016-09-14 11:44:41.669131]: Run Inventory success
+[2016-09-14 11:45:50.725547]: Reader Found with Product Id 0861
+[2016-09-14 11:46:00.794809]: Initialization success
+[2016-09-14 11:46:03.809773]: Antenna 1 configuration success
+[2016-09-14 11:46:06.824777]: Antenna 2 configuration success
+[2016-09-14 11:46:12.893909]: Run Inventory success
+[2016-09-14 11:46:45.833277]: Reader Found with Product Id 0861
+[2016-09-14 11:46:55.901834]: Initialization success
+[2016-09-14 11:46:58.916859]: Antenna 1 configuration success
+[2016-09-14 11:47:01.931872]: Antenna 2 configuration success
+[2016-09-14 11:47:09.966395]: Run Inventory success
+[2016-09-14 11:49:10.361099]: Reader Found with Product Id 0861
+[2016-09-14 11:49:20.422921]: Initialization success
+[2016-09-14 11:49:23.437910]: Antenna 1 configuration success
+[2016-09-14 11:49:26.452947]: Antenna 2 configuration success
+[2016-09-14 11:49:34.486482]: Run Inventory success
+[2016-09-14 11:50:46.438016]: Reader Found with Product Id 0861
+[2016-09-14 11:50:55.499921]: Initialization success
+[2016-09-14 11:50:58.514896]: Antenna 1 configuration success
+[2016-09-14 11:51:01.529940]: Antenna 2 configuration success
+[2016-09-14 11:51:06.599030]: Run Inventory success
+[2016-09-14 11:51:56.859563]: Reader Found with Product Id 0861
+[2016-09-14 11:52:06.926885]: Initialization success
+[2016-09-14 11:52:09.941872]: Antenna 1 configuration success
+[2016-09-14 11:52:12.956913]: Antenna 2 configuration success
+[2016-09-14 11:52:18.515140]: Run Inventory success

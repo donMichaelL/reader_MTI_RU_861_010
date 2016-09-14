@@ -105,6 +105,13 @@ def antenna_configuration_2():
     receive_data()
     printToFile('Antenna 2 configuration success')
 
+def config_session():
+    ep.write(bytearray(commands.set_session))
+    receive_data()
+    ep.write(bytearray(commands.set_algorithm))
+    receive_data()
+    ep.write(bytearray(commands.set_disable_toggle))
+    receive_data()
 
 def run_inventory():
     ep.write(bytearray(commands.retrieve_inventory))
@@ -119,11 +126,13 @@ def run_inventory():
 
 def starting_process():
     discover_reader()
-    # initialization()
+    initialization()
     print 'antenna1'
     antenna_configuration()
     print 'antenna2'
     antenna_configuration_2()
+    print 'session'
+    config_session()
     print 'intentory'
     run_inventory()
     print 'done'

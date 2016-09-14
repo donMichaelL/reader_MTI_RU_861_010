@@ -60,7 +60,6 @@ def get_antenna_code():
     return antenna_code
 
 def analyzer(response):
-    print 'ok'
     result = {}
     res = [hex(i) for i in response]
     # print len(res)
